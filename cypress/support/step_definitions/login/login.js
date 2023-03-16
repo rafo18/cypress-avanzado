@@ -10,10 +10,14 @@ Given( 'I am on the login page' , ()=> {
     loginPage.validateLoginPage()
 });
 
-When ('I fill in my email and password with username and password', () => {
-    loginPage.login('username' , 'password')
+When (/^I fill in my email and password with (.*) and (.*)$/ , (username, password) => {
+    loginPage.login(username , password)
     
 })
 Then ('I should validate that i am logged in', () => {
     loginPage.validatesuccesLogin()
+})
+
+Then('I should validate that i am not logged in', ()=> {
+    loginPage.validateErrorLogin()
 })

@@ -1,3 +1,5 @@
+//para compartir codigo del background se mueve la carpeta login a step_definitions
+
 Feature: NavigationBar
 
 Background: 
