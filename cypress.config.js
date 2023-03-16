@@ -1,24 +1,26 @@
 const { defineConfig } = require("cypress");
-const { addMatchImageSnapshotPlugin } = require("cypress-image-snapshot/plugin");
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild");
+
+async function setupNodeEvents(on, config) {
+  // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
+  await preprocessor.addCucumberPreprocessorPlugin(on, config);
+
+  on(
+    "file:preprocessor",
+    createBundler({
+      plugins: [createEsbuildPlugin.default(config)],
+    })
+  );
+
+  // Make sure to return the config object as it might have been modified by the plugin.
+  return config;
+}
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl:"https://pokedexpokemon.netlify.app/",
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-
-      // addMatchImageSnapshotPlugin(on,config)
-
-      config.env.variable = process.env.NODE_ENV ?? 'NO HAY VARIABLE '
-      return config;
-    },
-    // retries: 2,
-
-    env: {
-      credentials: {
-        user: "username",
-        password: 'password',
-      },
-    },
+    specPattern: "**/*.feature",
+    setupNodeEvents,
   },
 });
