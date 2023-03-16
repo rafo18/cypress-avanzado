@@ -11,10 +11,9 @@ Given( 'I am on the login page' , ()=> {
 });
 
 When ('I fill in my email and password with username and password', () => {
-    loginPage.login('email' , 'password')
+    loginPage.login('username' , 'password')
     
 })
 Then ('I should validate that i am logged in', () => {
-    loginPage.validateErrorLogin()
-
+    loginPage.validatesuccesLogin()
 })
