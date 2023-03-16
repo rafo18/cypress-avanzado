@@ -24,6 +24,15 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+// import {addMatchImageSnapshotPlugin} from "cypress-image-snapshot/command"
+
+// addMatchImageSnapshotPlugin({
+//     failureThreshold: 0.3,
+//     failureThresholdType: "percent",
+//     customDiffConfig: { threshold: 0.1 },
+//     captuere: "viewport"
+// })
+
 Cypress.Commands.add("login", (email,password) => {
 
     const userInput = "#user_login";
@@ -37,4 +46,6 @@ Cypress.Commands.add("login", (email,password) => {
     cy.get(passwordInput).type(password)
     cy.get(loginButton).click()
 })
+
+
 
