@@ -13,6 +13,6 @@ describe('interceptando network request', () => {
         cy.visit('/');
 
         cy.contains('Bulbasaur')
-    });
+    });   
     
 });
