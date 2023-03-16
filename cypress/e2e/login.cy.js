@@ -1,4 +1,3 @@
-import cypress from "cypress";
 import { loginPage } from "../pageObject/loginPage";
 
 describe('logincon pom', () => {
@@ -16,8 +15,9 @@ describe('logincon pom', () => {
     });
     it('login exitoso con cy.env', () => {
         loginPage.validateLoginPage();
-        cy.log(Cypress.env());
         
-
     });
+
+
 });
+
