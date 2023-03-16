@@ -39,6 +39,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+videos/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -102,3 +103,22 @@ dist
 
 # TernJS port file
 .tern-port
+
+### Video ###
+*.3g2
+*.3gp
+*.asf
+*.asx
+*.avi
+*.flv
+*.mkv
+*.mov
+*.mp4
+*.mpg
+*.ogv
+*.rm
+*.swf
+*.vob
+*.wmv
+*.webm
+/videos
