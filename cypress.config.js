@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 
 
 module.exports = defineConfig({
+  projectId: 'mzsemf',
   e2e: {
     baseUrl:"https://pokedexpokemon.netlify.app/",
     setupNodeEvents(on, config) {
